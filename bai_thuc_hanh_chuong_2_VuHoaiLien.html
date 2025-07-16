@@ -23,7 +23,90 @@
             text-decoration: none;
             color: blue;
         } 
-    </style>  
+    </style>
+    <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 6px 10px;
+    }
+    th {
+      font-weight: bold;
+    }
+  </style>  
+  <title>Employee Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    fieldset {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      padding: 15px;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+    }
+
+    label {
+      display: inline-block;
+      width: 150px;
+      vertical-align: top;
+      margin-top: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 300px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    .form-row {
+      margin-bottom: 8px;
+    }
+
+    .radio-group, .checkbox-group {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    .captcha {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-top: 10px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons input {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+
+    input[disabled] {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
     <h2>Form thêm sinh viên</h2>
@@ -90,5 +173,224 @@
             <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
         </tr>
     </table>
+    <h2>Bảng điểm</h2>
+    <table>
+    <!-- Dòng tiêu đề 1 -->
+    <tr>
+      <th rowspan="2" colspan="2">Student</th>
+      <th colspan="4">Exam</th>
+      <th colspan="4">2nd Exam</th>
+      <th colspan="2" rowspan="2">Final Grade</th>
+    </tr>
+
+    <!-- Dòng tiêu đề 2 -->
+    <tr>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Q3</th>
+      <th rowspan="2">Grade</th>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Q3</th>
+      <th rowspan="2">Grade</th>
+    </tr>
+
+    <!-- Dòng tiêu đề 3 -->
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <td>8</td>
+      <td>7</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <th>NR</th>
+      <th>R</th>
+    </tr>
+    <tr>
+        <td>80549061</td>
+        <td>John</td>
+        <td>70%</td>
+        <td>100%</td>
+        <td>100%</td>
+        <td>17.6</td>
+        <td colspan = "4"></td>
+        <td>17.6</td>
+        <td>18</td>
+    </tr>
+    <tr>
+        <td>80549062</td>
+        <td>Mary</td>
+        <td>10%</td>
+        <td>50%</td>
+        <td>50%</td>
+        <td>6.8</td>
+        <td>100%</td>
+        <td>100%</td>
+        <td>50%</td>
+        <td>16.5</td>
+        <td>16.5</td>
+        <td>17</td>
+    </tr>
+    <tr>
+        <td>80549061</td>
+        <td>Claire</td>
+        <td colspan = "4"></td>
+        <td>50%</td>
+        <td>50%</td>
+        <td>50%</td>
+        <td>10.0</td>
+        <td>10.0</td>
+        <td>10</td>
+    </tr>
+  </table>
+  <h2>Form</Form></h2>
+  <form>
+    <!-- Basic Info -->
+    <fieldset>
+      <legend>Basic Info</legend>
+
+      <div class="form-row">
+        <label>Employee ID</label>
+        <span>9</span>
+      </div>
+
+      <div class="form-row">
+        <label>Last Name</label>
+        <input type="text" value="Dodsworth" />
+      </div>
+
+      <div class="form-row">
+        <label>First Name</label>
+        <input type="text" value="Anne" />
+      </div>
+
+      <div class="form-row">
+        <label>Gender</label>
+        <span class="radio-group">
+          <label><input type="radio" name="gender"> Male</label>
+          <label><input type="radio" name="gender"> Female</label>
+          <label><input type="radio" name="gender"> XXX</label>
+          <label><input type="radio" name="gender" checked> ZZZ</label>
+        </span>
+      </div>
+
+      <div class="form-row">
+        <label>Title</label>
+        <input type="text" value="Sales Representative" />
+      </div>
+
+      <div class="form-row">
+        <label>Suffix</label>
+        <input type="text" value="Ms." />
+      </div>
+
+      <div class="form-row">
+        <label>BirthDate</label>
+        <input type="text" value="1969-07-02 00:00:00" />
+      </div>
+
+      <div class="form-row">
+        <label>HireDate</label>
+        <input type="text" value="1994-11-15 00:00:00" />
+      </div>
+
+      <div class="form-row">
+        <label>SSN # (if applicable)</label>
+        <input type="text" />
+      </div>
+
+      <div class="form-row">
+        <label>Reports To</label>
+        <select>
+          <option>Buchanan</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <!-- Contact Info -->
+    <fieldset>
+      <legend>Contact Info</legend>
+
+      <div class="form-row">
+        <label>Email</label>
+        <input type="email" placeholder="name@example.com" disabled />
+      </div>
+
+      <div class="form-row">
+        <label>Address</label>
+        <input type="text" value="7 Houndstooth Rd." />
+      </div>
+
+      <div class="form-row">
+        <label>City</label>
+        <input type="text" value="London" />
+      </div>
+
+      <div class="form-row">
+        <label>Region</label>
+        <input type="text" />
+      </div>
+
+      <div class="form-row">
+        <label>Postal Code</label>
+        <input type="text" value="WG2 7LT" />
+      </div>
+
+      <div class="form-row">
+        <label>Country</label>
+        <select>
+          <option>Russian Federation</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>US Home Phone</label>
+        <input type="text" value="(234)234-2342" />
+      </div>
+
+      <div class="form-row">
+        <label>Photo</label>
+        <input type="text" value="EmpID9.bmp" />
+      </div>
+    </fieldset>
+
+    <!-- Optional Info -->
+    <fieldset>
+      <legend>Optional Info</legend>
+
+      <div class="form-row">
+        <label>Notes</label>
+        <textarea>Anne has a BA degree in English from St. Lawrence College.&#10;She is fluent in French and German.ZZZ</textarea>
+      </div>
+
+      <div class="form-row">
+        <label>Preferred Shift</label>
+        <span class="checkbox-group">
+          <label><input type="checkbox"> Regular</label>
+          <label><input type="checkbox" checked> Gravy Yard</label>
+        </span>
+      </div>
+
+      <div class="form-row">
+        <label>Active?</label>
+        <input type="checkbox" checked />
+      </div>
+
+      <div class="form-row">
+        <label>Are you human?</label>
+        <div class="captcha">TIDAWO</div>
+        <a href="#">Click to change</a><br>
+        <input type="text" />
+      </div>
+
+    </fieldset>
+
+    <div class="buttons">
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Cancel" />
+    </div>
+  </form>
 </body>
 </html>
