@@ -1,14 +1,12 @@
-/* Định dạng form thêm sinh viên */
 form {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fcfff0; /* màu nền cho form */
+    background-color: #fcfff0;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Khoảng cách label/input */
 form label {
     display: inline-block;
     width: 120px;
@@ -23,7 +21,6 @@ form input, form textarea {
     border-radius: 4px;
 }
 
-/* Nút thêm sinh viên có hiệu ứng hover */
 form button {
     padding: 10px 20px;
     background-color: #4caf50;
@@ -38,7 +35,6 @@ form button:hover {
     background-color: #45a049;
 }
 
-/* Giao diện bảng danh sách sinh viên */
 table {
     width: 90%;
     margin: 30px auto;
@@ -46,24 +42,20 @@ table {
     border: 1px solid #333;
 }
 
-/* Viền rõ ràng cho bảng */
 table, th, td {
     border: 1px solid #333;
 }
 
-/* Header có màu khác */
 th {
-    background-color:  #fcfff0;
+    background-color:  #f3fff0;
     color: black;
     padding: 10px;
 }
 
-/* Dòng có gạch chân khi hover */
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f3fff0;
 }
 
-/* Căn giữa nội dung bảng */
 td {
     text-align: center;
     padding: 8px;
