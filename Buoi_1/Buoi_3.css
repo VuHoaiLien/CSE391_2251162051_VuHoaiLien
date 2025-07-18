@@ -3,7 +3,7 @@ form {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f0f8ff; /* màu nền cho form */
+    background-color: #fcfff0; /* màu nền cho form */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -53,8 +53,8 @@ table, th, td {
 
 /* Header có màu khác */
 th {
-    background-color: #00bcd4;
-    color: white;
+    background-color:  #fcfff0;
+    color: black;
     padding: 10px;
 }
 
