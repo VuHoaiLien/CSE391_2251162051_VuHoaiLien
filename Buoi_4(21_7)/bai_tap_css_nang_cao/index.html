@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Quản lý Sinh viên</title>
+</head>
+<body>
+    <nav class="navbar custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand">Quản lý sinh viên</a>
+        <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-danger" type="submit">Search</button>
+        </form>
+    </div>
+    </nav>
+
+  <div class="container">
+    <div class="form-section">
+      <h2>Thêm Sinh viên</h2>
+          <form>
+        <label for="masv">Mã sinh viên:</label>
+        <input type="text" id="masv" name="masv" required>
+
+        <label for="hoten">Họ và tên:</label>
+        <input type="text" id="hoten" name="hoten" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="ngaysinh">Ngày sinh:</label>
+        <input type="date" id="ngaysinh" name="ngaysinh">
+
+        <label>Giới tính:</label>
+        <div class="radio-group">
+          <input type="radio" id="nam" name="gioitinh" value="Nam">
+          <label for="nam">Nam</label>
+          <input type="radio" id="nu" name="gioitinh" value="Nữ">
+          <label for="nu">Nữ</label>
+        </div>
+
+
+        <label for="ghichu">Ghi chú:</label>
+        <textarea id="ghichu" name="ghichu" rows="4" cols="40"></textarea>
+
+        <button type="submit">Thêm sinh viên</button>
+    </form>
+    </div>
+
+    <div class="table-section">
+      <h2>Danh sách Sinh viên</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã SV</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Giới tính</th>
+            <th>Ngày sinh</th>
+            <th>Tùy chọn</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2251162051</td>
+            <td>Vũ Hoài Liên</td>
+            <td>2251162051@gmail.com</td>
+            <td>Nữ</td>
+            <td>04-11-2004</td>
+            <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2251162009</td>
+            <td>Trần Thị Khánh Hòa</td>
+            <td>2251162009@gmail.com</td>
+            <td>Nữ</td>
+            <td>03-12-2004</td>
+            <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2251162037</td>
+            <td>Đào Khánh Huyền</td>
+            <td>2251162037@gmail.com</td>
+            <td>Nữ</td>
+            <td>24-03-2004</td>
+            <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
