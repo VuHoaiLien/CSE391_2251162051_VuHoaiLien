@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quản lý giao dịch</title>
+  <link rel="stylesheet" href="buoi_8.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Thanh điều hướng -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Trường Đại học Thủy lợi</a>
+    </div>
+  </nav>
+
+  <!-- Nội dung chính -->
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <button class="btn btn-primary" onclick="showPopup()">➕ THÊM</button>
+      <button class="btn btn-secondary">📄 XUẤT RA FILE</button>
+      <input class="form-control w-25" type="text" placeholder="Tìm kiếm giao dịch">
+    </div>
+
+    <!-- Bảng dữ liệu -->
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Hành động</th>
+          <th>ID</th>
+          <th>Khách hàng</th>
+          <th>Nhân viên</th>
+          <th>Số tiền</th>
+          <th>Ngày mua</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-white text-center">
+    <p>TRƯỜNG ĐẠI HỌC THỦY LỢI</p>
+    <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+    <p>Email: phongdaotao@tlu.edu.vn</p>
+  </footer>
+
+  <!-- Pop-up Form -->
+  <div class="popup" id="popupForm">
+    <div class="popup-content">
+      <h5 class="popup-title">Thêm giao dịch <span onclick="hidePopup()" class="close">&times;</span></h5>
+      <form>
+        <div class="mb-3">
+          <label for="khachHang" class="form-label">Khách hàng</label>
+          <input type="text" class="form-control" id="khachHang">
+        </div>
+        <div class="mb-3">
+          <label for="nhanVien" class="form-label">Nhân viên</label>
+          <input type="text" class="form-control" id="nhanVien">
+        </div>
+        <div class="mb-3">
+          <label for="soTien" class="form-label">Số tiền</label>
+          <input type="number" class="form-control" id="soTien">
+        </div>
+        <div class="text-end">
+          <button type="button" class="btn btn-secondary" onclick="hidePopup()">Hủy</button>
+          <button type="submit" class="btn btn-success">Thêm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById("popupForm").style.display = "block";
+    }
+    function hidePopup() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+  </script>
+  <script src="data.js"></script>
+<script>
+  // Hiển thị dữ liệu ban đầu từ file data.js
+  window.onload = function () {
+    const tableBody = document.querySelector("table tbody");
+    giaoDichData.forEach(gd => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>
+          <button class="btn btn-warning btn-sm">✏️</button>
+          <button class="btn btn-danger btn-sm">🗑️</button>
+        </td>
+        <td>${gd.id}</td>
+        <td>${gd.khachHang}</td>
+        <td>${gd.nhanVien}</td>
+        <td>${parseInt(gd.soTien).toLocaleString("vi-VN")}</td>
+        <td>${gd.ngayMua}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  };
+
+  // Xử lý thêm giao dịch mới
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const khachHang = document.getElementById("khachHang").value.trim();
+    const nhanVien = document.getElementById("nhanVien").value.trim();
+    const soTien = document.getElementById("soTien").value.trim();
+
+    // Kiểm tra rỗng
+    if (!khachHang || !nhanVien || !soTien) {
+      alert("Vui lòng không để trống các trường thông tin!");
+      return;
+    }
+
+    // Kiểm tra độ dài
+    if (khachHang.length > 30) {
+      alert("Tên khách hàng không được vượt quá 30 ký tự.");
+      return;
+    }
+    if (nhanVien.length > 30) {
+      alert("Tên nhân viên không được vượt quá 30 ký tự.");
+      return;
+    }
+
+    // Kiểm tra số tiền hợp lệ
+    if (isNaN(soTien) || Number(soTien) <= 0) {
+      alert("Số tiền phải là số hợp lệ và lớn hơn 0.");
+      return;
+    }
+
+    // Tạo dòng mới
+    const newRow = document.createElement("tr");
+    const newId = Math.floor(Math.random() * 10000); // ID ngẫu nhiên
+
+    newRow.innerHTML = `
+      <td>
+        <button class="btn btn-warning btn-sm">✏️</button>
+        <button class="btn btn-danger btn-sm">🗑️</button>
+      </td>
+      <td>${newId}</td>
+      <td>${khachHang}</td>
+      <td>${nhanVien}</td>
+      <td>${parseInt(soTien).toLocaleString("vi-VN")}</td>
+      <td>${new Date().toLocaleString("vi-VN")}</td>
+    `;
+
+    // Thêm dòng vào bảng
+    const tableBody = document.querySelector("table tbody");
+    tableBody.appendChild(newRow);
+
+    // Reset form + đóng popup
+    document.querySelector("form").reset();
+    hidePopup();
+  });
+</script>
+
+
+
+</body>
+</html>
