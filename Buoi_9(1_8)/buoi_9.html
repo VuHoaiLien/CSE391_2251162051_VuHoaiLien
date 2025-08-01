@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý nhân viên</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="buoi_9.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-3">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a class="navbar-brand mb-0">Trường Đại học Thủy lợi</a>
+
+    <div class="d-flex align-items-center gap-2">
+      <a href="#" class="nav-link text-white px-2">Trang chủ</a>
+      <a href="#" class="nav-link text-white px-2">Quản lý cửa hàng</a>
+      <input class="form-control me-2" id="searchInput" type="text" placeholder="Nhập nội dung tìm kiếm">
+      <button class="btn btn-outline-light" onclick="search()">TÌM KIẾM</button>
+    </div>
+  </div>
+</nav>
+
+
+
+  <!-- Buttons -->
+  <div class="container my-4">
+    <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#popupForm">➕ THÊM MỚI</button>
+    <button class="btn btn-secondary">📄 XUẤT RA FILE</button>
+  </div>
+
+  <!-- Table -->
+  <div class="container">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>Hành động</th>
+          <th>STT</th>
+          <th>Tên</th>
+          <th>Họ đệm</th>
+          <th>Địa chỉ</th>
+          <th>Hoạt động</th>
+        </tr>
+      </thead>
+
+      <tbody id="employeeTable" class="text-start"></tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <strong>TRƯỜNG ĐẠI HỌC THỦY LỢI</strong><br>
+    Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội | Email: dhthuyloi@tlu.edu.vn
+  </div>
+
+  <!-- Popup Form -->
+  <div class="modal fade" id="popupForm" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Thêm Nhân viên</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formAdd">
+            <div class="mb-3">
+              <label for="ten" class="form-label">Tên</label>
+              <input type="text" class="form-control" id="ten" required>
+            </div>
+            <div class="mb-3">
+              <label for="hodem" class="form-label">Họ đệm</label>
+              <input type="text" class="form-control" id="hodem" required>
+            </div>
+            <div class="mb-3">
+              <label for="diachi" class="form-label">Địa chỉ</label>
+              <input type="text" class="form-control" id="diachi" required>
+            </div>
+            <div class="text-danger" id="thongbao"></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button class="btn btn-success" onclick="themNhanVien()">Thêm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gộp dữ liệu JSON vào đây -->
+  <script>
+  var data = [
+    { ten: "Mai", hodem: "Thục Anh", diachi: "22 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội", hoatdong: true },
+    { ten: "Hằng", hodem: "Sinh Hồng", diachi: "23 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội", hoatdong: false },
+    { ten: "Tình", hodem: "Hoàng Trung", diachi: "141 Đường Láng, Cầu Giấy, Hà Nội", hoatdong: true },
+    { ten: "Hồng", hodem: "Nguyễn Văn", diachi: "141 Đường Láng, Cầu Giấy, Hà Nội", hoatdong: false },
+    { ten: "Liên", hodem: "Vũ Hoài", diachi: "602 Kim Giang", hoatdong: true }
+  ];
+</script>
+
+
+  <script src="buoi_9.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

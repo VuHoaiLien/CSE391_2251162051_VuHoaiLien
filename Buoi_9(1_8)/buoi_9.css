@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.footer {
+  background-color: #002a80;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+th, td {
+  vertical-align: middle !important;
+}
+
+th span {
+  font-size: 12px;
+  color: #ccc;
+  margin-left: 5px;
+}
+
+.modal-footer .btn {
+  min-width: 80px;
+}
+
+.btn-action {
+  margin-right: 4px;
+  padding: 5px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-view {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.table td .fa-check {
+  color: green;
+}
+.table td .fa-times {
+  color: red;
+}
+.navbar .nav-link {
+  white-space: nowrap; /* Ngăn không cho xuống dòng */
+  padding: 0 6px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover {
+  text-decoration: underline;
+}
